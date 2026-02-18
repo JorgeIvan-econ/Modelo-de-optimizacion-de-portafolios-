@@ -36,11 +36,13 @@ El motor es **completamente flexible** y puede optimizar cualquier combinación 
 
 Para ilustrar las capacidades del motor, se diseñó un **portfolio real diversificado** que combina:
 
-**Composición (6 activos - Cartera de Máximo Sharpe GESTIONADA):**
-- 🇦🇷 **Mercado Argentino (56.88%):** GGAL.BA (20%), YPFD.BA (16.88%), ALUA.BA (20%)
+**Composición (7 activos - Cartera de Máximo Sharpe GESTIONADA):**
+- 🇦🇷 **Mercado Argentino (45.31%):** GGAL.BA (6.30%), YPFD.BA (19.01%), ALUA.BA (20.00%)
   - Exposición al riesgo país con restricción de 20% máximo por activo
-- 🌎 **Mercado Global (43.12%):** GOOGL (15%), MSFT (10%), KO (18.12%)
+- 🌎 **Mercado Global (44.69%):** GOOGL (20.26%), MSFT (14.43%), KO (10.00%)
   - Diversificación internacional en tecnología y consumo de alta capitalización
+- ₿ **Criptomonedas (10.00%):** BTC-USD (10.00%)
+  - Exposición limitada por restricción máxima
 
 > **📋 Nota Metodológica:** Los resultados que se presentan a continuación corresponden a la cartera **GESTIONADA** 
 > (con restricciones por tipo de activo), elegida por su mejor balance entre eficiencia y control de riesgo. 
@@ -50,21 +52,21 @@ Para ilustrar las capacidades del motor, se diseñó un **portfolio real diversi
 
 **Validación Out-of-Sample (1 año - Feb 2025 a Feb 2026):**
 
-| Estrategia | Retorno Total | Sharpe Ratio | Max Drawdown | Volatilidad |
-|-----------|---------------|--------------|--------------|-------------|
-| **Active (Rebalanceo)** | **+26.05%** | **0.86** | -13.91% | 28.76% |
-| Passive (Buy-Hold) | +24.54% | 0.78 | -13.91% | 28.64% |
-| Benchmark (SPY) | +12.24% | - | -18.76% | - |
+| Estrategia | Retorno Total | Sharpe Ratio | Max Drawdown | Capital Final |
+|-----------|---------------|--------------|--------------|---------------|
+| **Active (Rebalanceo)** | **+23.40%** | **0.84** | -15.03% | $1,233,970 |
+| Passive (Buy-Hold) | +23.25% | 0.80 | -15.00% | $1,232,520 |
+| Benchmark (SPY) | +12.24% | - | -18.76% | $1,122,352 |
 
 **Análisis de Fricción:**
-- Comisiones totales (rebalanceo mensual): USD 10,208.31 (1.02% del capital)
-- Comisiones pasivas: USD 5,000.00 (0.50% del capital)
-- Outperformance neta vs Passive: **+1.51%** (USD 15,051.64)
-- Outperformance vs Benchmark (SPY): **+13.81%**
-- **Conclusión:** El rebalanceo activo superó al buy-hold y al benchmark después de costos
+- Comisiones totales (rebalanceo mensual): $10,077.56 (1.01% del capital)
+- Comisiones pasivas: $5,000.00 (0.50% del capital)
+- Outperformance neta vs Passive: **+0.14%** ($1,450)
+- Outperformance vs Benchmark (SPY): **+11.16%**
+- **Conclusión:** El rebalanceo activo NO justificó las comisiones extra vs buy-hold, pero ambas estrategias superaron al benchmark significativamente
 
 **Stress Testing (Resiliencia en escenarios extremos):**
-- Crash Global: -20.50% | Crisis Argentina: -24.91% | Recuperación: +20.00%
+- Crash Global: -22.72% | Crisis Argentina: -21.36% | Recuperación: +20.00%
 
 > **💡 Nota clave:** Este portfolio demuestra la metodología del motor. El sistema puede aplicarse a cualquier combinación de activos (2-15+), con restricciones personalizadas, diferentes períodos de análisis y estrategias de rebalanceo. Las configuraciones son completamente flexibles para adaptarse a políticas de inversión específicas. (Ver [INSTRUCCIONES.md](INSTRUCCIONES.md) )  
 
@@ -75,10 +77,12 @@ Para ilustrar las capacidades del motor, se diseñó un **portfolio real diversi
 ### 1. Train/Test Split Riguroso
 El sistema implementa **validación out-of-sample genuina** para evitar overfitting:
 
-- **Train Set (5 años):** Optimización de pesos, estimación de covarianza, cálculo de VaR ex-ante
-- **Test Set (1 año):** Backtesting con datos que el modelo **nunca vio** durante la optimización
+- **Train Set (2 años):** Feb 2023 - Feb 2025 | Optimización de pesos, estimación de covarianza, cálculo de VaR ex-ante
+- **Test Set (1 año):** Feb 2025 - Feb 2026 | Backtesting con datos que el modelo **nunca vio** durante la optimización
 
 **Resultado:** Performance realista sin data leakage, metodología alineada con estándares académicos (De Prado, 2018).
+
+> **Nota:** El período de entrenamiento es configurable en el código (variable `ANALYSIS_YEARS`). Para mayor robustez, se recomienda 3-5 años de datos históricos cuando estén disponibles.
 
 ### 2. Optimización de Markowitz Extendida
 
@@ -119,10 +123,10 @@ El sistema implementa **validación out-of-sample genuina** para evitar overfitt
 - **CVaR (Conditional VaR) al 95%:** "Si excedo el VaR, perderé en promedio Y%"
 - **Simulación Monte Carlo:** 10,000 escenarios por distribución
 
-**Resultados Típicos:**
-- VaR Conservador (df=3): -4.79% diario, -75.97% anualizado
-- CVaR Conservador (df=3): -8.30% diario, -131.78% anualizado
-- VaR Esperado (df≈4.6): Estimado por MLE de datos históricos
+**Resultados (Cartera Gestionada):**
+- VaR Conservador (df=3): -3.22% diario, -51.13% anualizado
+- CVaR Conservador (df=3): -5.68% diario, -90.17% anualizado
+- VaR Esperado (df≈7.0): -2.60% diario, estimado por MLE de datos históricos
 
 ### 4. Backtesting con Gestión Activa Realista
 
@@ -140,29 +144,30 @@ El sistema implementa **validación out-of-sample genuina** para evitar overfitt
 ```
 ¿Vale la pena el rebalanceo después de costos?
 → Retorno_Active - Retorno_Passive > (Comisiones_Extra / Capital_Inicial)
-→ 24.16% - 14.92% > (5,844.46 / 1,000,000)
-→ 9.24% > 0.58%  ✅ SÍ
+→ 23.40% - 23.25% > (5,077.56 / 1,000,000)
+→ 0.14% > 0.51%  ❌ NO (por -0.37%)
 ```
+**Lección:** En este período, buy-and-hold fue más eficiente por costos de transacción.
 
 ### 5. Stress Testing: Escenarios Extremos
 
 **3 Escenarios Predefinidos:**
 
-**1. Crash Global (-23.8%):**
-- S&P 500: -20% | Tech (GOOGL, MSFT): -25% | BTC: -40%
-- Impacto: USD 238,000 en riesgo
+**1. Crash Global (-22.72%):**
+- Stocks: -20% | Tech (MSFT): -25% | BTC: -40%
+- Impacto: $227,216 en riesgo
 
-**2. Crisis Argentina (-25.4%):**
+**2. Crisis Argentina (-21.36%):**
 - Stocks locales (GGAL, YPFD, ALUA): -40% | Globales: -5% (contagio)
-- Impacto: USD 254,000 en riesgo
+- Impacto: $213,577 en riesgo
 
 **3. Recuperación Agresiva (+20.0%):**
 - Todos los activos: +20%
-- Upside: USD 200,000
+- Upside: $200,000
 
 **Validación Cruzada:**
-- CVaR Conservador: -8.30% → Stress Test: -24.91% (worst-case alineado)
-- VaR Conservador: -4.79% → Drawdown Realizado: -13.91% (mejor que proyección conservadora)
+- CVaR Conservador: -5.68% diario → Stress Test: -22.72% (worst-case alineado)
+- VaR Conservador: -3.22% diario → Drawdown Realizado: -15.03% (dentro del rango esperado)
 
 ---
 
@@ -237,11 +242,10 @@ tickers = [
 ]
 ```
 
-**Criterio de selección (Cartera de Máximo Sharpe):**
-- 🇦🇷 Argentina: 56.88% (GGAL 20%, YPFD 16.88%, ALUA 20%) - Exposición al mercado local con restricciones de 20% máximo por activo
-- 🌎 Global: 43.12% (GOOGL 15%, MSFT 10%, KO 18.12%) - Diversificación en tecnología y consumo de alta capitalización
-
-> **Nota:** BTC-USD no fue incluido en la cartera de Máximo Sharpe debido a su alta volatilidad. El optimizador lo asignó a 0% al buscar el mejor ratio riesgo-retorno con las restricciones definidas.
+**Criterio de selección (Cartera de Máximo Sharpe GESTIONADA):**
+- 🇦🇷 Argentina: 45.31% (GGAL 6.30%, YPFD 19.01%, ALUA 20.00%) - Exposición al mercado local con restricciones de 20% máximo por activo
+- 🌎 Global: 44.69% (GOOGL 20.26%, MSFT 14.43%, KO 10.00%) - Diversificación en tecnología y consumo de alta capitalización
+- ₿ Cripto: 10.00% (BTC-USD 10.00%) - Exposición limitada por restricción máxima de criptomonedas
 
 ---
 

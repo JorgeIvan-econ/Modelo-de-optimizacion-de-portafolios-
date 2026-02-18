@@ -317,8 +317,7 @@ El gráfico incluye:
 
 ---
 
-**Disclaimer:** Este backtest se basa en datos históricos y supone un escenario ideal sin costos 
-de transacción. Los resultados pasados no garantizan performance futura. Las condiciones de 
+**Disclaimer:** Este backtest se basa en datos históricos. Los resultados pasados no garantizan performance futura. Las condiciones de 
 mercado pueden cambiar dramáticamente, especialmente en mercados emergentes como Argentina. 
 Se recomienda consultar con un asesor financiero certificado antes de implementar esta estrategia.
 
@@ -326,3 +325,4 @@ Se recomienda consultar con un asesor financiero certificado antes de implementa
 
 *Generado por Portfolio Engine v2.0 | Python + Scipy*  
 *Desarrollado por Jorge Iván Juárez A. - Lic. en Economía especializado en mercado de capitales*
+

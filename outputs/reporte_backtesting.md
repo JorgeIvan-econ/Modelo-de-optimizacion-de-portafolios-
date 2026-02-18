@@ -280,31 +280,13 @@ El gráfico incluye:
 
 ---
 
-## 8. Recomendaciones para Implementación
-
-### Para Inversores Conservadores
-- Considerar **reducir exposición a activos argentinos** si el drawdown supera tolerancia
-- Implementar **stop-loss** en nivel cercano al VaR diario (-3.22%)
-- **Rebalancear** trimestralmente para mantener pesos óptimos
-
-### Para Inversores Agresivos
-- La estrategia requiere ajustes en la asignación
-- Considerar **apalancamiento moderado** si Sharpe > 2
-- Monitorear **indicadores macro argentinos** (riesgo país, tipo de cambio)
-
-### Ajustes Sugeridos
-
-2. **Revisar la composición de la cartera** - el riesgo no está siendo compensado adecuadamente
-
----
-
-## 9. Próximos Pasos
+## 8. Próximos Pasos
 
 1. **Backtest Rolling (ventana móvil):** Evaluar estabilidad de la estrategia en diferentes períodos
 2. **Out-of-Sample Testing:** Testear en datos más recientes no usados en optimización
 3. **Stress Testing:** Simular escenarios extremos (crisis 2001, 2018, pandemia 2020)
 4. **Optimización Dinámica:** Implementar rebalanceo mensual/trimestral
-5. **Inclusión de Costos:** Agregar comisiones y slippage para análisis realista
+5. **Inclusión de Slippage:** Agregar costos de deslizamiento de precio para mayor realismo
 
 ---
 
@@ -317,12 +299,13 @@ El gráfico incluye:
 
 ---
 
-**Disclaimer:** Este backtest se basa en datos históricos. Los resultados pasados no garantizan performance futura. Las condiciones de 
-mercado pueden cambiar dramáticamente, especialmente en mercados emergentes como Argentina. 
+**Disclaimer:** Este backtest se basa en datos históricos. Los resultados pasados no garantizan performance futura e incluye comisiones de transacción 
+del 0.5% por operación. Las condiciones de mercado pueden cambiar dramáticamente, especialmente en mercados emergentes como Argentina. 
 Se recomienda consultar con un asesor financiero certificado antes de implementar esta estrategia.
 
 ---
 
 *Generado por Portfolio Engine v2.0 | Python + Scipy*  
 *Desarrollado por Jorge Iván Juárez A. - Lic. en Economía especializado en mercado de capitales*
+
 

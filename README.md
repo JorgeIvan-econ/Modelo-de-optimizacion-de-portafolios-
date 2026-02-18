@@ -296,7 +296,7 @@ Modelo-de-optimizacion-de-portafolios-/
 
 ---
 
-## 💼 Casos de Uso
+## 💼 Algunos casos de Uso
 
 ### 1. Asset Allocation Estratégico
 - **Input:** Lista de activos disponibles, restricciones regulatorias
@@ -401,14 +401,6 @@ Modelo-de-optimizacion-de-portafolios-/
 - Hiperinflación (>50% anual)
 - Riesgo político y cambios regulatorios abruptos
 
-### 🔧 Mitigaciones Recomendadas
-
-1. **Usar escenario conservador (df=3)** para asignación de capital
-2. **Rebalancear trimestralmente** en lugar de mensualmente (reduce costos)
-3. **Monitorear indicadores macro:** Riesgo país, tipo de cambio implícito, reservas BCRA
-4. **Implementar stop-loss** al nivel del VaR diario (-4.79% para df=3)
-5. **Diversificar fuera de Argentina:** Mínimo 50% en activos globales líquidos
-
 ---
 
 ## 🛠️ Implementación Técnica
@@ -459,5 +451,6 @@ MIT License - Libre uso para fines educativos y comerciales.
 **Desarrollado con ❤️ para el mercado financiero argentino**
 
 *Desarrollado por Jorge Iván Juárez A. - Lic. en Economía especializado en mercado de capitales*
+
 
 

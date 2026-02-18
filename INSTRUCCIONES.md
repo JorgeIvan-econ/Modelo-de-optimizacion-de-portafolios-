@@ -39,12 +39,12 @@ Si no tienes Python instalado:
 
 ```bash
 # Opción 1: Clonar repositorio (si está en GitHub)
-git clone https://github.com/tu-usuario/Financial-Risk-model.git
-cd Financial-Risk-model
+git clone https://github.com/tu-usuario/Modelo-de-optimizacion-de-portafolios-.git
+cd Modelo-de-optimizacion-de-portafolios-
 
-# Opción 2: Descomprimir archivo ZIP
-unzip Financial-Risk-model.zip
-cd Financial-Risk-model
+# Opción 2: Descomprimir archivo ZIP descargado desde GitHub
+# (El nombre de la carpeta dependerá de cómo lo descargues/extraigas)
+cd portfolio-optimizer  # Ajusta según tu nombre de carpeta local
 ```
 
 ### 2. Instalar Dependencias
@@ -85,7 +85,7 @@ python portfolio_engine.py
 ```
 MÓDULO 1/6: DESCARGA DE DATOS
   ↓ Descarga datos históricos de Yahoo Finance
-  ↓ Período: Configurable (default: 5 años para optimización + 1 año para backtest)
+  ↓ Período: Configurable (default: 2 años para optimización + 1 año para backtest)
   ↓ Activos: 7 por default (GGAL.BA, YPFD.BA, ALUA.BA, GOOGL, BTC-USD, MSFT, KO)
 
 MÓDULO 2/6: ESTADÍSTICAS DESCRIPTIVAS
@@ -185,7 +185,7 @@ tickers = [
 
 ```python
 # Configuración de períodos
-ANALYSIS_YEARS = 5  # ← Años de datos para optimización (mínimo: 2, óptimo: 3-5)
+ANALYSIS_YEARS = 2  # ← Años de datos para optimización (mínimo: 2, óptimo: 3-5)
 BACKTEST_YEARS = 1  # ← Años para backtesting (debe ser < ANALYSIS_YEARS)
 ```
 
@@ -199,9 +199,9 @@ BACKTEST_YEARS = 2   # 2 años para validar
 ```
 Hoy: 2026-02-17
 
-ANALYSIS_YEARS = 5, BACKTEST_YEARS = 1
+ANALYSIS_YEARS = 2, BACKTEST_YEARS = 1
 ↓
-Train Set: 2020-02-17 a 2025-02-17 (5 años) → Optimización
+Train Set: 2023-02-18 a 2025-02-17 (2 años) → Optimización
 Test Set:  2025-02-17 a 2026-02-17 (1 año)  → Backtesting
 ```
 
@@ -457,7 +457,7 @@ INITIAL_CAPITAL = 10000000  # USD 10,000,000
 ## 📁 Estructura del Proyecto
 
 ```
-Financial Risk model/
+Modelo-de-optimizacion-de-portafolios-/
 │
 ├── data/                      # Datos descargados (generado automáticamente)
 │   └── *.csv                  # Archivos CSV de precios históricos
@@ -466,7 +466,7 @@ Financial Risk model/
 │   └── analisis_portfolio.ipynb
 │
 ├── src/                       # Código fuente
-│   └── portfolio_engine.py    # Motor principal (3,192 líneas)
+│   └── portfolio_engine.py    # Motor principal (3,360 líneas)
 │
 ├── outputs/                   # Resultados generados (se sobrescriben en cada ejecución)
 │   ├── efficient_frontier.png       # Frontera eficiente + matrices (300 DPI)
@@ -851,3 +851,4 @@ Para preguntas técnicas o mejoras al código:
 ---
 
 *Última actualización: Febrero 2026*
+

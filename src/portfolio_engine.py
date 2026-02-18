@@ -1030,33 +1030,7 @@ La matriz de covarianza revela cómo los activos argentinos están **altamente c
    - La varianza del portfolio es: σ²ₚ = wᵀΣw (donde w son los pesos y Σ la matriz de covarianza)
    - Covarianzas altas incrementan σ²ₚ más que la simple suma de varianzas individuales
    - Este es el **riesgo sistémico no diversificable**
-
-### Recomendaciones para Gestión de Riesgo
-
-#### Para el Inversor Conservador
-- Priorizar la **cartera de mínima volatilidad**
-- Limitar exposición a activos argentinos de alta volatilidad
-- Mantener diversificación internacional robusta (> 40% en activos globales)
-
-#### Para el Inversor Agresivo
-- Implementar la **cartera de máximo Sharpe**
-- Monitorear constantemente el VaR/CVaR
-- Establecer stop-loss en niveles cercanos al VaR diario
-
-#### Gestión del Riesgo Sistémico Argentino
-1. **Hedging:** Considerar instrumentos de cobertura (dólar MEP, bonos en USD, futuros)
-2. **Rebalanceo Dinámico:** Ajustar pesos trimestralmente según cambios en volatilidad y correlaciones
-3. **Stress Testing:** Evaluar impacto de escenarios adversos:
-   - Devaluación abrupta (> 30%)
-   - Evento de default soberano
-   - Controles de capital
-4. **Diversificación Geográfica:** Mantener exposición significativa a mercados no correlacionados
-5. **Monitoreo de Indicadores Macro:** 
-   - Brecha cambiaria
-   - Reservas del BCRA
-   - Riesgo país (EMBI+)
-   - Inflación mensual
-
+    
 ---
 
 ## 6. Comparación: Optimización Libre vs Gestionada
@@ -1535,31 +1509,13 @@ El gráfico incluye:
 
 ---
 
-## 8. Recomendaciones para Implementación
-
-### Para Inversores Conservadores
-- Considerar **reducir exposición a activos argentinos** si el drawdown supera tolerancia
-- Implementar **stop-loss** en nivel cercano al VaR diario ({risk_metrics['var_daily']*100:.2f}%)
-- **Rebalancear** trimestralmente para mantener pesos óptimos
-
-### Para Inversores Agresivos
-- La estrategia {"validó su eficiencia" if sharpe > 1 else "requiere ajustes en la asignación"}
-- Considerar **apalancamiento moderado** si Sharpe > 2
-- Monitorear **indicadores macro argentinos** (riesgo país, tipo de cambio)
-
-### Ajustes Sugeridos
-
-{self._generate_adjustments(total_ret, sharpe, max_dd, outperf_active)}
-
----
-
-## 9. Próximos Pasos
+## 8. Próximos Pasos
 
 1. **Backtest Rolling (ventana móvil):** Evaluar estabilidad de la estrategia en diferentes períodos
 2. **Out-of-Sample Testing:** Testear en datos más recientes no usados en optimización
 3. **Stress Testing:** Simular escenarios extremos (crisis 2001, 2018, pandemia 2020)
 4. **Optimización Dinámica:** Implementar rebalanceo mensual/trimestral
-5. **Inclusión de Costos:** Agregar comisiones y slippage para análisis realista
+5. **Inclusión de Slippage:** Agregar costos de deslizamiento de precio para mayor realismo
 
 ---
 
@@ -1572,8 +1528,8 @@ El gráfico incluye:
 
 ---
 
-**Disclaimer:** Este backtest se basa en datos históricos y supone un escenario ideal sin costos 
-de transacción. Los resultados pasados no garantizan performance futura. Las condiciones de 
+**Disclaimer:** Este backtest se basa en datos históricos e incluye comisiones de transacción 
+del 0.5% por operación. Los resultados pasados no garantizan performance futura. Las condiciones de 
 mercado pueden cambiar dramáticamente, especialmente en mercados emergentes como Argentina. 
 Se recomienda consultar con un asesor financiero certificado antes de implementar esta estrategia.
 

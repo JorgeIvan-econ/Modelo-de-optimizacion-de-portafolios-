@@ -28,7 +28,7 @@ El motor es **completamente flexible** y puede optimizar cualquier combinación 
 
 ### Stress Testing: Resiliencia en Escenarios Extremos
 ![Stress Test](outputs/stress_test.png)
-*Crash Global: -23.8% | Crisis Argentina: -25.4% | Recuperación: +20.0%*
+*Crash Global: -22.72% | Crisis Argentina: -21.36% | Recuperación: +20.0%*
 
 ---
 
@@ -252,10 +252,10 @@ tickers = [
 ## 🏗️ Arquitectura del Sistema
 
 ```
-Financial Risk model/
+Modelo-de-optimizacion-de-portafolios-/
 │
 ├── src/                       
-│   └── portfolio_engine.py    # Motor principal (3,192 líneas)
+│   └── portfolio_engine.py    # Motor principal (3,360  líneas)
 │
 ├── outputs/                   # Resultados generados automáticamente
 │   ├── efficient_frontier.png       # Frontera eficiente + matrices
@@ -459,3 +459,4 @@ MIT License - Libre uso para fines educativos y comerciales.
 **Desarrollado con ❤️ para el mercado financiero argentino**
 
 *Desarrollado por Jorge Iván Juárez A. - Lic. en Economía especializado en mercado de capitales*
+

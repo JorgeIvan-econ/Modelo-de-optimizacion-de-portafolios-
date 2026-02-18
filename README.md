@@ -395,7 +395,7 @@ Modelo-de-optimizacion-de-portafolios-/
 - **Dividendos:** No modela reinversión automática
 - **Eventos Corporativos:** No captura splits, fusiones, delisting
 
-**Riesgo País Argentina (No Capturado):**
+**Riesgo País Argentina (No Capturado completamente):**
 - Controles cambiarios sorpresivos ("cepo")
 - Defaults soberanos (historial recurrente)
 - Hiperinflación (>50% anual)
@@ -459,4 +459,5 @@ MIT License - Libre uso para fines educativos y comerciales.
 **Desarrollado con ❤️ para el mercado financiero argentino**
 
 *Desarrollado por Jorge Iván Juárez A. - Lic. en Economía especializado en mercado de capitales*
+
 

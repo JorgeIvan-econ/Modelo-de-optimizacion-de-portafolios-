@@ -260,32 +260,6 @@ La matriz de covarianza revela cómo los activos argentinos están **altamente c
    - Covarianzas altas incrementan σ²ₚ más que la simple suma de varianzas individuales
    - Este es el **riesgo sistémico no diversificable**
 
-### Recomendaciones para Gestión de Riesgo
-
-#### Para el Inversor Conservador
-- Priorizar la **cartera de mínima volatilidad**
-- Limitar exposición a activos argentinos de alta volatilidad
-- Mantener diversificación internacional robusta (> 40% en activos globales)
-
-#### Para el Inversor Agresivo
-- Implementar la **cartera de máximo Sharpe**
-- Monitorear constantemente el VaR/CVaR
-- Establecer stop-loss en niveles cercanos al VaR diario
-
-#### Gestión del Riesgo Sistémico Argentino
-1. **Hedging:** Considerar instrumentos de cobertura (dólar MEP, bonos en USD, futuros)
-2. **Rebalanceo Dinámico:** Ajustar pesos trimestralmente según cambios en volatilidad y correlaciones
-3. **Stress Testing:** Evaluar impacto de escenarios adversos:
-   - Devaluación abrupta (> 30%)
-   - Evento de default soberano
-   - Controles de capital
-4. **Diversificación Geográfica:** Mantener exposición significativa a mercados no correlacionados
-5. **Monitoreo de Indicadores Macro:** 
-   - Brecha cambiaria
-   - Reservas del BCRA
-   - Riesgo país (EMBI+)
-   - Inflación mensual
-
 ---
 
 ## 6. Comparación: Optimización Libre vs Gestionada
@@ -410,3 +384,4 @@ y considerar la tolerancia al riesgo personal, horizonte temporal y situación f
 
 *Generado por Portfolio Engine v2.0 | Python + Scipy*  
 *Desarrollado por Jorge Iván Juárez A. - Lic. en Economía especializado en mercado de capitales*
+
